@@ -1,3 +1,6 @@
+![Logo OINC](https://github.com/MiguelSFlach/OINC-SUINOS/assets/165222126/6634f835-4157-4c6f-848e-89cd8590c92f)
+
+
 Requisitos para o Sistema de Gerenciamento de Granja
 
 Uma granja deseja construir um sistema para facilitar e agilizar o controle de porcas em suas instalações. O sistema deve permitir o cadastro de todas as porcas que chegam à granja. A granja é dividida em quatro grupos, cada um com uma função específica:
