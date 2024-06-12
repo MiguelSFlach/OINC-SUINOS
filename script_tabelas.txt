@@ -1,0 +1,267 @@
+CREATE TABLE Alimentacao (
+    aliid SERIAL NOT NULL, 
+    datali DATE NOT NULL, 
+    tipali VARCHAR(255) NOT NULL, 
+    qtdali NUMERIC(19, 0) NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    PRIMARY KEY (aliid)
+);
+COMMENT ON TABLE Alimentacao IS 'Controle da alimentacao dos animais';
+COMMENT ON COLUMN Alimentacao.aliid IS 'Id da alimentacao';
+COMMENT ON COLUMN Alimentacao.datali IS 'Data da alimentacao';
+COMMENT ON COLUMN Alimentacao.tipali IS 'Tipo do alimento';
+COMMENT ON COLUMN Alimentacao.qtdali IS 'Quantidade do alimento';
+
+CREATE TABLE Animal (
+    aniid SERIAL NOT NULL, 
+    codani VARCHAR(50) NOT NULL UNIQUE, 
+    tipani INT4 NOT NULL CHECK(tipani = 1 OR tipani = 2 OR tipani = 3), 
+    datnas DATE NOT NULL, 
+    pesani NUMERIC(19, 0) NOT NULL, 
+    stsani INT4 NOT NULL CHECK(stsani = 1 OR stsani = 2), 
+    caumor VARCHAR(255) NOT NULL, 
+    grupogruid INT4 NOT NULL, 
+    mortemorid INT4 NOT NULL, 
+    PRIMARY KEY (aniid)
+);
+COMMENT ON TABLE Animal IS 'Cadastro de animais';
+COMMENT ON COLUMN Animal.aniid IS 'Id do animal';
+COMMENT ON COLUMN Animal.codani IS 'Codigo do animal';
+COMMENT ON COLUMN Animal.tipani IS 'Tipo do animal
+1-Porca
+2-Porco
+3-Leitao';
+COMMENT ON COLUMN Animal.datnas IS 'Data de nascimento do animal';
+COMMENT ON COLUMN Animal.pesani IS 'Peso do animal';
+COMMENT ON COLUMN Animal.stsani IS 'Status do animal
+1-Vivo
+2-Morto';
+COMMENT ON COLUMN Animal.caumor IS 'Causa da morte do animal';
+
+CREATE TABLE Compras (
+    comid SERIAL NOT NULL, 
+    comdat DATE NOT NULL, 
+    comdes VARCHAR(255) NOT NULL, 
+    comval NUMERIC(19, 0) NOT NULL, 
+    fornecedoresforid INT4 NOT NULL, 
+    PRIMARY KEY (comid)
+);
+COMMENT ON TABLE Compras IS 'Tabela de compras de insumos';
+COMMENT ON COLUMN Compras.comid IS 'Id da compra';
+COMMENT ON COLUMN Compras.comdat IS 'Data da compra';
+COMMENT ON COLUMN Compras.comdes IS 'Descricao da compra';
+COMMENT ON COLUMN Compras.comval IS 'Valor da compra';
+
+CREATE TABLE Financeiro (
+    finid SERIAL NOT NULL, 
+    datfin DATE NOT NULL, 
+    tipfin INT4 NOT NULL CHECK(tipfin = 1 OR tipfin = 2), 
+    valfin NUMERIC(19, 0) NOT NULL, 
+    desfin TEXT NOT NULL, 
+    usuariousuid INT4 NOT NULL, 
+    PRIMARY KEY (finid)
+);
+COMMENT ON TABLE Financeiro IS 'Controle financeiro';
+COMMENT ON COLUMN Financeiro.finid IS 'Id da operacao financeira';
+COMMENT ON COLUMN Financeiro.datfin IS 'Data da operacao';
+COMMENT ON COLUMN Financeiro.tipfin IS 'Tipo de operacao
+1-Receita
+2-Despesa';
+COMMENT ON COLUMN Financeiro.valfin IS 'Valor da operacao';
+COMMENT ON COLUMN Financeiro.desfin IS 'Descricao da operacao';
+
+CREATE TABLE Fornecedores (
+    forid SERIAL NOT NULL, 
+    fornom VARCHAR(100) NOT NULL, 
+    forcon VARCHAR(100) NOT NULL, 
+    fortel VARCHAR(20) NOT NULL, 
+    forema VARCHAR(100) NOT NULL, 
+    PRIMARY KEY (forid)
+);
+COMMENT ON TABLE Fornecedores IS 'Tabela de fornecedores';
+COMMENT ON COLUMN Fornecedores.forid IS 'Id do fornecedor';
+COMMENT ON COLUMN Fornecedores.fornom IS 'Nome do fornecedor';
+COMMENT ON COLUMN Fornecedores.forcon IS 'Contato do fornecedor';
+COMMENT ON COLUMN Fornecedores.fortel IS 'Telefone do fornecedor';
+COMMENT ON COLUMN Fornecedores.forema IS 'Email do fornecedor';
+
+CREATE TABLE Grupo (
+    gruid SERIAL NOT NULL, 
+    nomgru VARCHAR(50) NOT NULL UNIQUE, 
+    desgru VARCHAR(255) NOT NULL, 
+    PRIMARY KEY (gruid)
+);
+COMMENT ON TABLE Grupo IS 'Cadastro de grupos de animais';
+COMMENT ON COLUMN Grupo.gruid IS 'Id do grupo de animais';
+COMMENT ON COLUMN Grupo.nomgru IS 'Nome do grupo de animais';
+COMMENT ON COLUMN Grupo.desgru IS 'Descricao do grupo';
+
+CREATE TABLE Inseminacao (
+    insid SERIAL NOT NULL, 
+    pcaid INT4 NOT NULL, 
+    pcoid INT4 NOT NULL, 
+    datins DATE NOT NULL, 
+    sucins INT4 NOT NULL CHECK(sucins = 1 OR sucins = 2), 
+    tenins INT4 NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    PRIMARY KEY (insid)
+);
+COMMENT ON TABLE Inseminacao IS 'Controle de Inseminacoes dos animais';
+COMMENT ON COLUMN Inseminacao.insid IS 'Id da inseminacao';
+COMMENT ON COLUMN Inseminacao.pcaid IS 'Id da porca';
+COMMENT ON COLUMN Inseminacao.pcoid IS 'Id do porco';
+COMMENT ON COLUMN Inseminacao.datins IS 'Data da inseminacao';
+COMMENT ON COLUMN Inseminacao.sucins IS 'Houve sucesso na inseminacao do animal
+1-Sim
+2-Nao';
+COMMENT ON COLUMN Inseminacao.tenins IS 'Tentativas de inseminacao';
+
+CREATE TABLE Insumo (
+    insid SERIAL NOT NULL, 
+    nomins VARCHAR(100) NOT NULL, 
+    desins TEXT NOT NULL, 
+    qtdins NUMERIC(19, 0) NOT NULL, 
+    undins VARCHAR(255) NOT NULL, 
+    PRIMARY KEY (insid)
+);
+COMMENT ON TABLE Insumo IS 'Controle de insumos';
+COMMENT ON COLUMN Insumo.insid IS 'Id do insumo';
+COMMENT ON COLUMN Insumo.nomins IS 'Nome do insumo';
+COMMENT ON COLUMN Insumo.desins IS 'Descricao do insumo';
+COMMENT ON COLUMN Insumo.qtdins IS 'Quantidade de insumos';
+COMMENT ON COLUMN Insumo.undins IS 'Unidade do insumo';
+
+CREATE TABLE Insumo_Compras (
+    insumoinsid INT4 NOT NULL, 
+    comprascomid INT4 NOT NULL, 
+    PRIMARY KEY (insumoinsid, comprascomid)
+);
+
+CREATE TABLE Leitao (
+    leiid SERIAL NOT NULL, 
+    pcaid INT4 NOT NULL, 
+    peslei NUMERIC(19, 0) NOT NULL, 
+    datnaslei DATE NOT NULL, 
+    qtdviv INT4 NOT NULL, 
+    qtdmor INT4 NOT NULL, 
+    qtdmum INT4 NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    vendavenid INT4 NOT NULL, 
+    PRIMARY KEY (leiid)
+);
+COMMENT ON TABLE Leitao IS 'Cadastro de leitoes';
+COMMENT ON COLUMN Leitao.leiid IS 'Id do leitao';
+COMMENT ON COLUMN Leitao.pcaid IS 'Id da porca mae do leitao';
+COMMENT ON COLUMN Leitao.peslei IS 'Peso do leitao';
+COMMENT ON COLUMN Leitao.datnaslei IS 'Data de nascimento do leitao';
+COMMENT ON COLUMN Leitao.qtdviv IS 'Quantidade de leitoes vivos';
+COMMENT ON COLUMN Leitao.qtdmor IS 'Quantidade de leitoes mortos';
+COMMENT ON COLUMN Leitao.qtdmum IS 'Quantidade de leitoes mumificados';
+
+CREATE TABLE Morte (
+    morid SERIAL NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    datmor DATE NOT NULL, 
+    caumor VARCHAR(255) NOT NULL, 
+    partoparid INT4 NOT NULL, 
+    PRIMARY KEY (morid)
+);
+COMMENT ON TABLE Morte IS 'Controle de mortes dos animais';
+COMMENT ON COLUMN Morte.morid IS 'Id da morte do animal';
+COMMENT ON COLUMN Morte.datmor IS 'Data da morte do animal';
+COMMENT ON COLUMN Morte.caumor IS 'Causa da morte do animal';
+
+CREATE TABLE Movimentacao (
+    movid SERIAL NOT NULL, 
+    datmov DATE NOT NULL, 
+    tipmov INT4 NOT NULL CHECK(tipmov = 1 OR tipmov = 2), 
+    locorimov VARCHAR(255) NOT NULL, 
+    locdesmov VARCHAR(255) NOT NULL, 
+    motmov TEXT NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    PRIMARY KEY (movid)
+);
+COMMENT ON TABLE Movimentacao IS 'Controle de movimentacao dos animais';
+COMMENT ON COLUMN Movimentacao.movid IS 'Id da movimentacao';
+COMMENT ON COLUMN Movimentacao.datmov IS 'Data da movimentacao';
+COMMENT ON COLUMN Movimentacao.tipmov IS 'Tipo da movimentacao
+1-Entrada
+2-Saida';
+COMMENT ON COLUMN Movimentacao.locorimov IS 'Local de origem';
+COMMENT ON COLUMN Movimentacao.locdesmov IS 'Local de destino';
+COMMENT ON COLUMN Movimentacao.motmov IS 'Motivo da movimentacao';
+
+CREATE TABLE Notificacao (
+    notid SERIAL NOT NULL, 
+    notdat DATE NOT NULL, 
+    notmen VARCHAR(255) NOT NULL, 
+    notlid INT4 NOT NULL CHECK(notlid = 1 OR notlid = 2), 
+    usuariousuid INT4 NOT NULL, 
+    PRIMARY KEY (notid)
+);
+COMMENT ON TABLE Notificacao IS 'Tabela de notificacao';
+COMMENT ON COLUMN Notificacao.notid IS 'Id da notificacao';
+COMMENT ON COLUMN Notificacao.notdat IS 'Data da notificacao';
+COMMENT ON COLUMN Notificacao.notmen IS 'Mensagem da notificacao';
+COMMENT ON COLUMN Notificacao.notlid IS 'A notificacao foi lida
+1-Sim
+2-Nao';
+
+CREATE TABLE Parto (
+    parid SERIAL NOT NULL, 
+    datpar DATE NOT NULL, 
+    pcaid INT4 NOT NULL, 
+    PRIMARY KEY (parid)
+);
+COMMENT ON TABLE Parto IS 'Controle dos partos';
+COMMENT ON COLUMN Parto.parid IS 'Id do parto';
+COMMENT ON COLUMN Parto.datpar IS 'Data do parto';
+COMMENT ON COLUMN Parto.pcaid IS 'Id da porca do parto';
+
+CREATE TABLE Usuarios (
+    usuid SERIAL NOT NULL, 
+    usulog VARCHAR(50) NOT NULL UNIQUE, 
+    ususen VARCHAR(50) NOT NULL, 
+    usutip INT4 NOT NULL CHECK(usutip = 1 OR usutip = 2 OR usutip = 3), 
+    PRIMARY KEY (usuid)
+);
+COMMENT ON TABLE Usuarios IS 'Tabela de usuarios';
+COMMENT ON COLUMN Usuarios.usuid IS 'Id do usuario';
+COMMENT ON COLUMN Usuarios.usulog IS 'Login do usuario';
+COMMENT ON COLUMN Usuarios.ususen IS 'Senha do usuario';
+COMMENT ON COLUMN Usuarios.usutip IS 'Tipo de usuario
+1-Administrador
+2-Gerente
+3-Usuario Comum';
+
+CREATE TABLE Venda (
+    venid SERIAL NOT NULL, 
+    datven DATE NOT NULL, 
+    qtdven INT4 NOT NULL, 
+    vlrven NUMERIC(19, 0) NOT NULL, 
+    animalaniid INT4 NOT NULL, 
+    PRIMARY KEY (venid)
+);
+COMMENT ON TABLE Venda IS 'Tabela de vendas dos animais';
+COMMENT ON COLUMN Venda.venid IS 'Id da venda';
+COMMENT ON COLUMN Venda.datven IS 'Data da venda';
+COMMENT ON COLUMN Venda.qtdven IS 'Quantidade de animais vendidos';
+COMMENT ON COLUMN Venda.vlrven IS 'Valor total da venda';
+
+ALTER TABLE Alimentacao ADD CONSTRAINT FKAlimentacao619702 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Compras ADD CONSTRAINT FKCompras892337 FOREIGN KEY (fornecedoresforid) REFERENCES Fornecedores (forid);
+ALTER TABLE Financeiro ADD CONSTRAINT FKFinanceiro482751 FOREIGN KEY (usuariousuid) REFERENCES Usuarios (usuid);
+ALTER TABLE Inseminacao ADD CONSTRAINT FKInseminacao408294 FOREIGN KEY (pcaid) REFERENCES Animal (aniid);
+ALTER TABLE Inseminacao ADD CONSTRAINT FKInseminacao534988 FOREIGN KEY (pcoid) REFERENCES Animal (aniid);
+ALTER TABLE Inseminacao ADD CONSTRAINT FKInseminacao793576 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Leitao ADD CONSTRAINT FKLeitao17431 FOREIGN KEY (pcaid) REFERENCES Animal (aniid);
+ALTER TABLE Leitao ADD CONSTRAINT FKLeitao699481 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Leitao ADD CONSTRAINT FKLeitao442665 FOREIGN KEY (vendavenid) REFERENCES Venda (venid);
+ALTER TABLE Morte ADD CONSTRAINT FKMorte777294 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Morte ADD CONSTRAINT FKMorte740142 FOREIGN KEY (partoparid) REFERENCES Parto (parid);
+ALTER TABLE Movimentacao ADD CONSTRAINT FKMovimentacao619702 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Notificacao ADD CONSTRAINT FKNotificacao482751 FOREIGN KEY (usuariousuid) REFERENCES Usuarios (usuid);
+ALTER TABLE Parto ADD CONSTRAINT FKParto17431 FOREIGN KEY (pcaid) REFERENCES Animal (aniid);
+ALTER TABLE Venda ADD CONSTRAINT FKVenda619702 FOREIGN KEY (animalaniid) REFERENCES Animal (aniid);
+ALTER TABLE Insumo_Compras ADD CONSTRAINT FKInsumo_Compras525726 FOREIGN KEY (insumoinsid) REFERENCES Insumo (insid);
+ALTER TABLE Insumo_Compras ADD CONSTRAINT FKInsumo_Compras232948 FOREIGN KEY (comprascomid) REFERENCES Compras (comid);

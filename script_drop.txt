@@ -1,0 +1,76 @@
+-- Drop constraints da tabela Vacina_Animal
+ALTER TABLE Vacina_Animal DROP CONSTRAINT IF EXISTS FKVacina_Ani659397;
+ALTER TABLE Vacina_Animal DROP CONSTRAINT IF EXISTS FKVacina_Ani638056;
+
+-- Drop constraints da tabela Leitão
+ALTER TABLE Leitão DROP CONSTRAINT IF EXISTS FKLeitão257907;
+ALTER TABLE Leitão DROP CONSTRAINT IF EXISTS FKLeitão190195;
+
+-- Drop constraints da tabela Animal
+ALTER TABLE Animal DROP CONSTRAINT IF EXISTS FKAnimal455615;
+ALTER TABLE Animal DROP CONSTRAINT IF EXISTS FKAnimal467971;
+
+-- Drop constraints da tabela Inseminação
+ALTER TABLE Inseminação DROP CONSTRAINT IF EXISTS FKInseminaçã34769;
+
+-- Drop constraints da tabela Parto
+ALTER TABLE Parto DROP CONSTRAINT IF EXISTS FKParto258380;
+
+-- Drop constraints da tabela Registro
+ALTER TABLE Registro DROP CONSTRAINT IF EXISTS FKRegistro238334;
+
+-- Drop constraints da tabela Tratamento
+ALTER TABLE Tratamento DROP CONSTRAINT IF EXISTS FKTratamento662903;
+
+-- Drop constraints da tabela Movimentação
+ALTER TABLE Movimentação DROP CONSTRAINT IF EXISTS FKMovimentaç567069;
+
+-- Drop constraints da tabela Alimentação
+ALTER TABLE Alimentação DROP CONSTRAINT IF EXISTS FKAlimentaçã318681;
+
+-- Drop constraints da tabela Uso_Insumo
+ALTER TABLE Uso_Insumo DROP CONSTRAINT IF EXISTS FKUso_Insumo70481;
+ALTER TABLE Uso_Insumo DROP CONSTRAINT IF EXISTS FKUso_Insumo258713;
+
+-- Drop constraints da tabela Compras
+ALTER TABLE Compras DROP CONSTRAINT IF EXISTS FKCompras239758;
+
+-- Drop constraints da tabela Notificação
+ALTER TABLE Notificação DROP CONSTRAINT IF EXISTS FKNotificaçã233799;
+
+-- Drop constraints da tabela Relatorios
+ALTER TABLE Relatorios DROP CONSTRAINT IF EXISTS FKRelatorios215466;
+
+-- Drop constraints da tabela Financeiro
+ALTER TABLE Financeiro DROP CONSTRAINT IF EXISTS FKFinanceiro475081;
+
+-- Drop constraints da tabela Insumo_Compras
+ALTER TABLE Insumo_Compras DROP CONSTRAINT IF EXISTS FKInsumo_Com93092;
+ALTER TABLE Insumo_Compras DROP CONSTRAINT IF EXISTS FKInsumo_Com939901;
+
+-- Drop constraints da tabela Morte
+ALTER TABLE Morte DROP CONSTRAINT IF EXISTS FKMorte351378;
+
+-- Drop tabelas
+DROP TABLE IF EXISTS Alimentação CASCADE;
+DROP TABLE IF EXISTS Animal CASCADE;
+DROP TABLE IF EXISTS Compras CASCADE;
+DROP TABLE IF EXISTS Financeiro CASCADE;
+DROP TABLE IF EXISTS Fornecedores CASCADE;
+DROP TABLE IF EXISTS Grupo CASCADE;
+DROP TABLE IF EXISTS Inseminação CASCADE;
+DROP TABLE IF EXISTS Insumo CASCADE;
+DROP TABLE IF EXISTS Insumo_Compras CASCADE;
+DROP TABLE IF EXISTS Leitão CASCADE;
+DROP TABLE IF EXISTS Morte CASCADE;
+DROP TABLE IF EXISTS Movimentação CASCADE;
+DROP TABLE IF EXISTS Notificação CASCADE;
+DROP TABLE IF EXISTS Parto CASCADE;
+DROP TABLE IF EXISTS Registro CASCADE;
+DROP TABLE IF EXISTS Relatorios CASCADE;
+DROP TABLE IF EXISTS Tratamento CASCADE;
+DROP TABLE IF EXISTS Uso_Insumo CASCADE;
+DROP TABLE IF EXISTS Usuario CASCADE;
+DROP TABLE IF EXISTS Vacina CASCADE;
+DROP TABLE IF EXISTS Vacina_Animal CASCADE;
+DROP TABLE IF EXISTS Venda CASCADE;
