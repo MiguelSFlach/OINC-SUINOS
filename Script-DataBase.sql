@@ -235,16 +235,16 @@ COMMENT ON COLUMN Insumo.desins IS 'Descrição do insumo';
 COMMENT ON COLUMN Insumo.qtdins IS 'Quantidade do insumo';
 COMMENT ON COLUMN Insumo.undins IS 'Unidade de medida do insumo';
 
-CREATE TABLE Compra_Insumo (
+CREATE TABLE Insumo_Compra (
     Insumoinsid int4 NOT NULL, 
     Compra_comid int4 NOT NULL, 
     PRIMARY KEY (Insumoinsid, Compra_comid),
     FOREIGN KEY (Insumoinsid) REFERENCES Insumo (insid),
     FOREIGN KEY (Compra_comid) REFERENCES Compra (comid)
 );
-COMMENT ON TABLE Compra_Insumo IS 'Tabela associativa de compras de insumos';
-COMMENT ON COLUMN Compra_Insumo.Insumoinsid IS 'Id do insumo';
-COMMENT ON COLUMN Compra_Insumo.Compra_comid IS 'Id da compra';
+COMMENT ON TABLE Insumo_Compra IS 'Tabela associativa de compras de insumos';
+COMMENT ON COLUMN Insumo_Compra.Insumoinsid IS 'Id do insumo';
+COMMENT ON COLUMN Insumo_Compra.Compra_comid IS 'Id da compra';
 
 CREATE TABLE Movimentacao (
     movid SERIAL NOT NULL, 
