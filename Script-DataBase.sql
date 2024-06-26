@@ -1,5 +1,5 @@
 CREATE TABLE Granja (
-    cnpj int4 NOT NULL, 
+    cnpj int8 NOT NULL, 
     nomgra varchar(255) NOT NULL, 
     telgran int4 NOT NULL, 
     qtdanigra int4 NOT NULL, 
