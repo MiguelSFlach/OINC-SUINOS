@@ -188,7 +188,7 @@ CREATE TABLE Endereco (
     numend int4 NOT NULL, 
     cidend varchar(255) NOT NULL, 
     cepend int4 NOT NULL, 
-    Granjacnpj int4 NOT NULL, 
+    Granjacnpj int8 NOT NULL, 
     PRIMARY KEY (idend),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
 );
