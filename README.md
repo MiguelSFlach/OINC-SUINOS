@@ -1,7 +1,9 @@
 ![Logo OINC](https://github.com/MiguelSFlach/OINC-SUINOS/assets/165222126/6634f835-4157-4c6f-848e-89cd8590c92f)
 
 
-                                            💊 OINC Suínos 💉
+                                           
+
+🐖OINC Suínos🐖
 
   Sistema para Gerenciamento de Granja de Suínos
 
@@ -17,14 +19,14 @@ Consultas SQL para Análise e Relatórios
 Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
 
   📦 Estrutura de Pastas
-📁 Modelagem
-📄 Dicionário de Dados
-📄 Oinc-Suínos (Documentação e descrição do processo de desenvolvimento do trabalho)
-📁 Roteiros
-📄 Gaia-Consultas (Scripts de consulta/relatórios do sistema)
-📄 Gaia-Drops (Scripts de exclusão de tabelas e da Base de Dados)
-📄 Gaia-Tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
-📄 Gaia-Inserts (Scripts de inserção de dados)
+*📁 Modelagem
+*📄 Dicionário de Dados
+*📄 Oinc-Suínos (Documentação e descrição do processo de desenvolvimento do trabalho)
+*📁 Roteiros
+*📄 Gaia-Consultas (Scripts de consulta/relatórios do sistema)
+*📄 Gaia-Drops (Scripts de exclusão de tabelas e da Base de Dados)
+*📄 Gaia-Tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
+*📄 Gaia-Inserts (Scripts de inserção de dados)
 
   🛠️ Ferramentas Utilizadas
 Paradigma Visual
