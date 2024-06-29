@@ -4,14 +4,14 @@
                                            
 
 
-<p style="font-size:60px;">__🐖OINC Suínos🐖__</p>
+<p style="font-size: 60px; text-align: center;">🐖 OINC Suínos 🐖</p>
 
   Sistema para Gerenciamento de Granja de Suínos
 
   __🚀 Começando__
 O Projeto Gaia se trata de um trabalho avaliativo para a disciplina de Banco de Dados 1 da Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
 
-🔎 Um pouco do que você vai encontrar aqui:
+__🔎 Um pouco do que você vai encontrar aqui:__
 * Desenvolvimento da Estrutura de Dados
 * Documentação Detalhada das Entidades e Atributos
 * Scripts para Criar o Banco de Dados e suas Tabelas
