@@ -13,3 +13,4 @@ Detalhes Adicionais:
 
 Taxa de Mortalidade e Natalidade: O sistema deve calcular a taxa de mortalidade e natalidade com base nos dados dos leitões. Essas taxas devem ser vinculadas aos dados da porca para determinar sua média de rendimento.
 Registro de Mortes: Dentro de cada grupo (Gestação, Maternidade, Inseminação e Creche), o sistema deve registrar as mortes de porcas, porcos ou leitões, incluindo a causa da morte.
+💊 OINC Suínos 💉
