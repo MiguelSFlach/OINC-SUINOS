@@ -4,7 +4,7 @@
                                            
 
 
-<p style="font-size: 60px; text-align: center;">🐖 OINC Suínos 🐖</p>
+  __🐖 OINC Suínos 🐖__
 
   Sistema para Gerenciamento de Granja de Suínos
 
