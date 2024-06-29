@@ -1,16 +1,40 @@
 ![Logo OINC](https://github.com/MiguelSFlach/OINC-SUINOS/assets/165222126/6634f835-4157-4c6f-848e-89cd8590c92f)
 
 
-Proposta para o Sistema de Gerenciamento de Granja
+                                            💊 OINC Suínos 💉
 
-Uma granja deseja construir um sistema para facilitar e agilizar o controle de porcas em suas instalações. O sistema deve permitir o cadastro de todas as porcas que chegam à granja. A granja é dividida em quatro grupos, cada um com uma função específica:
+  Sistema para Gerenciamento de Granja de Suínos
 
-Gestação: Porcas grávidas são cadastradas neste grupo. Cada porca deve ser registrada com seu código, data de nascimento e peso. Os porcos machos também devem ser cadastrados com as mesmas informações.
-Maternidade: Após o cruzamento, as porcas grávidas são transferidas para este grupo. Elas aguardam até a data programada para o parto. Durante esse período, elas recebem as vacinações necessárias. Os leitões nascidos também são cadastrados no sistema.
-Inseminação: As porcas são enviadas para este grupo para o cruzamento com um macho. O sistema deve registrar quantas tentativas de inseminação foram feitas para cada porca. Caso a porca não tenha ficado prenha, essa informação também deve ser registrada.
-Creche: Os leitões que atingirem o peso ideal são enviados para venda. Os que não atingirem o peso ideal permanecem na creche para tentar novamente atingir o peso desejado.
-Detalhes Adicionais:
+  🚀 Começando
+O Projeto Gaia se trata de um trabalho avaliativo para a disciplina de Banco de Dados 1 da Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
 
-Taxa de Mortalidade e Natalidade: O sistema deve calcular a taxa de mortalidade e natalidade com base nos dados dos leitões. Essas taxas devem ser vinculadas aos dados da porca para determinar sua média de rendimento.
-Registro de Mortes: Dentro de cada grupo (Gestação, Maternidade, Inseminação e Creche), o sistema deve registrar as mortes de porcas, porcos ou leitões, incluindo a causa da morte.
-💊 OINC Suínos 💉
+  🔎 Um pouco do que você vai encontrar aqui:
+Desenvolvimento da Estrutura de Dados
+Documentação Detalhada das Entidades e Atributos
+Scripts para Criar o Banco de Dados e suas Tabelas
+Scripts para Inserir Dados no Banco
+Consultas SQL para Análise e Relatórios
+Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
+
+  📦 Estrutura de Pastas
+📁 Modelagem
+📄 Dicionário de Dados
+📄 Oinc-Suínos (Documentação e descrição do processo de desenvolvimento do trabalho)
+📁 Roteiros
+📄 Gaia-Consultas (Scripts de consulta/relatórios do sistema)
+📄 Gaia-Drops (Scripts de exclusão de tabelas e da Base de Dados)
+📄 Gaia-Tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
+📄 Gaia-Inserts (Scripts de inserção de dados)
+
+  🛠️ Ferramentas Utilizadas
+Paradigma Visual
+PostgreSQL
+DBeaver
+Google Docs
+Generatedata.com
+
+  ✒️ Autores
+Desenvolvedores do Projeto: [Insira os nomes dos membros da equipe aqui]
+
+  🙏 Agradecimento
+Gostaríamos de agradecer ao professor por disponibilizar o exemplo anterior do projeto de banco de dados, que nos inspirou e ajudou na construção do nosso trabalho para a gerência de granja de suínos na UNOESC.
