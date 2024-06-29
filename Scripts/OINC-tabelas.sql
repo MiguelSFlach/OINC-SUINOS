@@ -1,6 +1,7 @@
+
 /* Criação da Base de Dados */
 
-create database oinc;
+--create database oinc;
 
 ----------------------------------------------------------------
 
@@ -107,7 +108,6 @@ COMMENT ON COLUMN Financeiro.desfin IS 'Descrição da operação';
 ----------------------------------------------------------------
 CREATE TABLE Animal (
     aniid SERIAL NOT NULL, 
-    codani varchar(50) NOT NULL UNIQUE, 
     tipani int4 NOT NULL CHECK(tipani = '1' or tipani = '2' or tipani = '3'), 
     datnas date NOT NULL, 
     pesani numeric(19, 0) NOT NULL, 
@@ -121,8 +121,7 @@ CREATE TABLE Animal (
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
 );
 COMMENT ON TABLE Animal IS 'Cadastro de animais';
-COMMENT ON COLUMN Animal.aniid IS 'Id do animal';
-COMMENT ON COLUMN Animal.codani IS 'Codigo do animal';
+COMMENT ON COLUMN Animal.aniid IS 'ID do animal';
 COMMENT ON COLUMN Animal.tipani IS 'Tipo do animal
 1-Porca
 2-Porco
