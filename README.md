@@ -3,8 +3,8 @@
 
                                            
 
-__🐖OINC Suínos🐖__
-<p style="font-size:20px;">__🐖OINC Suínos🐖__</p>
+
+<p style="font-size:60px;">__🐖OINC Suínos🐖__</p>
 
   Sistema para Gerenciamento de Granja de Suínos
 
