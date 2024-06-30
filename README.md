@@ -3,7 +3,7 @@
                                            
 
 
-<h1 align = "center"><b>🐖 OINC Suínos</b>🐖</h1> 
+<h1 align = "center"><b>🐖 OINC Suínos</b> 🐖</h1> 
 
 <h4 align = "center"><b>Sistema para Gerenciamento de Granja de Suínos</b></h4>
 
@@ -52,7 +52,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
 
 ### **✒️ Autores**
 
-Desenvolvedores do Projeto: [Insira os nomes dos membros da equipe aqui]
+Desenvolvedores do Projeto: [Insira os nomes dos membros da equipe aqui] Miguel Schneiders Flach
 #
 
 ### **🙏 Agradecimento**
