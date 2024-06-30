@@ -8,11 +8,10 @@
 /* Criação das Tabelas */
 
 CREATE TABLE Granja (
-    cnpj int8 NOT NULL, 
+    cnpj NUMERIC(14, 0) PRIMARY KEY, 
     nomgra varchar(255) NOT NULL, 
     telgran int4 NOT NULL, 
-    qtdanigra int4 NOT NULL, 
-    PRIMARY KEY (cnpj)
+    qtdanigra int4 NOT NULL
 );
 COMMENT ON TABLE Granja IS 'Cadastro de granjas';
 COMMENT ON COLUMN Granja.cnpj IS 'CNPJ da granja';
@@ -54,15 +53,16 @@ CREATE TABLE Compra (
     comdat date NOT NULL, 
     comdes varchar(255) NOT NULL, 
     comval numeric(19, 0) NOT NULL, 
-    Fornecedoresforid int4 NOT NULL, 
+    forid int4 NOT NULL, 
     PRIMARY KEY (comid),
-    FOREIGN KEY (Fornecedoresforid) REFERENCES Fornecedor (forid)
+    FOREIGN KEY (forid) REFERENCES Fornecedor (forid)
 );
 COMMENT ON TABLE Compra IS 'Tabela de compras de insumos';
 COMMENT ON COLUMN Compra.comid IS 'Id da compra';
 COMMENT ON COLUMN Compra.comdat IS 'Data da compra';
 COMMENT ON COLUMN Compra.comdes IS 'Descrição da compra';
 COMMENT ON COLUMN Compra.comval IS 'Valor da compra';
+COMMENT ON COLUMN Compra.forid IS 'Id do fornecedor da compra';
 
 ----------------------------------------------------------------
 CREATE TABLE Usuario (
@@ -71,7 +71,7 @@ CREATE TABLE Usuario (
     emausu varchar(100) NOT NULL, 
     senusu varchar(255) NOT NULL, 
     tipusu int4 NOT NULL CHECK(tipusu = '1' or tipusu = '2'), 
-    Granjacnpj int4 NOT NULL, 
+    Granjacnpj int8 NOT NULL, 
     PRIMARY KEY (usuid),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
 );
@@ -112,9 +112,9 @@ CREATE TABLE Animal (
     datnas DATE NOT NULL, 
     pesani NUMERIC(19, 0) NOT NULL, 
     stsani INT4 NOT NULL CHECK(stsani IN (1, 2)), 
-    caumor VARCHAR(255) NOT NULL, 
+    caumor VARCHAR(255), 
     Grupogruid INT4 NOT NULL, 
-    Granjacnpj INT4 NOT NULL, 
+    Granjacnpj INT8 NOT NULL, 
     PRIMARY KEY (aniid),
     FOREIGN KEY (Grupogruid) REFERENCES Grupo (gruid),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
@@ -284,15 +284,17 @@ COMMENT ON COLUMN Movimentacao.locdesmov IS 'Local de destino da movimentação'
 COMMENT ON COLUMN Movimentacao.motmov IS 'Motivo da movimentação';
 
 ----------------------------------------------------------------
+
 CREATE TABLE Notificacao (
     notid SERIAL NOT NULL, 
-    notdat date NOT NULL, 
-    notmen varchar(255) NOT NULL, 
-    notlid int4 NOT NULL CHECK(notlid = '1' or notlid = '2'), 
-    Usuariousuid int4 NOT NULL, 
+    notdat DATE NOT NULL, 
+    notmen VARCHAR(255) NOT NULL, 
+    notlid INT4 NOT NULL CHECK(notlid IN (1, 2)), 
+    Usuariousuid INT4 NOT NULL, 
     PRIMARY KEY (notid),
     FOREIGN KEY (Usuariousuid) REFERENCES Usuario (usuid)
 );
+
 COMMENT ON TABLE Notificacao IS 'Controle de notificações dos usuários';
 COMMENT ON COLUMN Notificacao.notid IS 'Id da notificação';
 COMMENT ON COLUMN Notificacao.notdat IS 'Data da notificação';
