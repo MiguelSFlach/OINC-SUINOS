@@ -108,14 +108,13 @@ COMMENT ON COLUMN Financeiro.desfin IS 'Descrição da operação';
 ----------------------------------------------------------------
 CREATE TABLE Animal (
     aniid SERIAL NOT NULL, 
-    tipani int4 NOT NULL CHECK(tipani = '1' or tipani = '2' or tipani = '3'), 
-    datnas date NOT NULL, 
-    pesani numeric(19, 0) NOT NULL, 
-    stsani int4 NOT NULL CHECK(stsani = '1' or stsani = '2'), 
-    caumor varchar(255) NOT NULL, 
-    Grupogruid int4 NOT NULL, 
-    Mortemorid int4 NOT NULL, 
-    Granjacnpj int4 NOT NULL, 
+    tipani INT4 NOT NULL CHECK(tipani IN (1, 2, 3)), 
+    datnas DATE NOT NULL, 
+    pesani NUMERIC(19, 0) NOT NULL, 
+    stsani INT4 NOT NULL CHECK(stsani IN (1, 2)), 
+    caumor VARCHAR(255) NOT NULL, 
+    Grupogruid INT4 NOT NULL, 
+    Granjacnpj INT4 NOT NULL, 
     PRIMARY KEY (aniid),
     FOREIGN KEY (Grupogruid) REFERENCES Grupo (gruid),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
@@ -148,14 +147,15 @@ COMMENT ON COLUMN Vacina_Animal.datvac IS 'Data da vacinação';
 ----------------------------------------------------------------
 CREATE TABLE Venda (
     venid SERIAL NOT NULL, 
-    leiid int4 NOT NULL, 
+    Animalaniid int4 NOT null, 
     datven date NOT NULL, 
     preven numeric(19, 0) NOT NULL, 
-    PRIMARY KEY (venid)
+    PRIMARY KEY (venid),
+    FOREIGN KEY (Animalaniid) REFERENCES Animal (aniid)
 );
 COMMENT ON TABLE Venda IS 'Cadastro de venda de animais';
 COMMENT ON COLUMN Venda.venid IS 'Id da venda de animais';
-COMMENT ON COLUMN Venda.leiid IS 'Id do leitão';
+COMMENT ON COLUMN Venda.Animalaniid IS 'Id do leitão';
 COMMENT ON COLUMN Venda.datven IS 'Data da venda dos animais';
 COMMENT ON COLUMN Venda.preven IS 'Preço de venda de animais';
 
@@ -165,9 +165,6 @@ CREATE TABLE Leitao (
     pcaid int4 NOT NULL, 
     peslei numeric(19, 0) NOT NULL, 
     datnaslei date NOT NULL, 
-    qtdviv int4 NOT NULL, 
-    qtdmor int4 NOT NULL, 
-    qtdmum int4 NOT NULL, 
     Animalaniid int4 NOT NULL, 
     Vendavenid int4 NOT NULL, 
     PRIMARY KEY (leiid),
@@ -179,9 +176,6 @@ COMMENT ON COLUMN Leitao.leiid IS 'Id do leitão';
 COMMENT ON COLUMN Leitao.pcaid IS 'Id da porca mãe do leitão';
 COMMENT ON COLUMN Leitao.peslei IS 'Peso do leitão';
 COMMENT ON COLUMN Leitao.datnaslei IS 'Data de nascimento do leitão';
-COMMENT ON COLUMN Leitao.qtdviv IS 'Quantidade de leitões vivos';
-COMMENT ON COLUMN Leitao.qtdmor IS 'Quantidade de leitões mortos';
-COMMENT ON COLUMN Leitao.qtdmum IS 'Quantidade de leitões mumificados';
 
 ----------------------------------------------------------------
 CREATE TABLE Alimentacao (
@@ -220,7 +214,7 @@ COMMENT ON COLUMN Endereco.cepend IS 'CEP do endereço da granja';
 ----------------------------------------------------------------
 CREATE TABLE Inseminacao (
     insid SERIAL NOT NULL, 
-    tipins varchar(50) NOT NULL, 
+    tipins int4 NOT null CHECK(tipins = '1' or tipins = '2'), 
     datins date NOT NULL, 
     sucins int4 NOT NULL CHECK(sucins = '1' or sucins = '2'), 
     tenins int4 NOT NULL, 
@@ -269,7 +263,7 @@ COMMENT ON COLUMN Insumo_Compra.Compra_comid IS 'Id da compra';
 
 ----------------------------------------------------------------
 CREATE TABLE Movimentacao (
-    movid SERIAL NOT NULL, 
+    movid SERIAL NOT NULL,
     datmov date NOT NULL, 
     tipmov int4 NOT NULL CHECK(tipmov = '1' or tipmov = '2'), 
     locorimov varchar(255) NOT NULL, 
@@ -308,22 +302,43 @@ COMMENT ON COLUMN Notificacao.notlid IS 'Notificação lida?
 2-Não';
 
 ----------------------------------------------------------------
+
 CREATE TABLE Parto (
-    parid SERIAL NOT NULL, 
-    pcaid int4 NOT NULL, 
-    datpar date NOT NULL, 
-    vasrec varchar(255) NOT NULL, 
-    Animalaniid int4 NOT NULL, 
-    morqtdpar int4, 
-    PRIMARY KEY (parid),
+    parid SERIAL PRIMARY KEY,
+    datpar DATE NOT NULL,
+    vasrec VARCHAR(255) NOT NULL,
+    Animalaniid INT4 NOT NULL,
+    morqtdpar INT4,
     FOREIGN KEY (Animalaniid) REFERENCES Animal (aniid)
 );
 COMMENT ON TABLE Parto IS 'Controle de partos das porcas';
 COMMENT ON COLUMN Parto.parid IS 'Id do parto';
-COMMENT ON COLUMN Parto.pcaid IS 'Id da porca que pariu';
+COMMENT ON COLUMN Parto.Animalaniid IS 'Id da porca que pariu';
 COMMENT ON COLUMN Parto.datpar IS 'Data do parto';
 COMMENT ON COLUMN Parto.vasrec IS 'Vasectomia realizada?';
 COMMENT ON COLUMN Parto.morqtdpar IS 'Quantidade de leitões mortos no parto';
+
+-- Criação da função para verificar se o animal é uma porca (tipani = 1)
+CREATE OR REPLACE FUNCTION check_female_animal()
+    RETURNS TRIGGER AS $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Animal
+        WHERE aniid = NEW.Animalaniid AND tipani = 1
+    ) THEN
+        RAISE EXCEPTION 'O animal deve ser uma porca (tipani = 1)';
+    END IF;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+-- Criação da trigger para disparar a função antes de inserir na tabela Parto
+CREATE TRIGGER validate_female_animal
+    BEFORE INSERT ON Parto
+    FOR EACH ROW
+    EXECUTE FUNCTION check_female_animal();
 
 ----------------------------------------------------------------
 CREATE TABLE Registro (
@@ -365,7 +380,7 @@ CREATE TABLE Uso_Insumo (
     Animalaniid int4 NOT NULL, 
     idusuins SERIAL NOT NULL, 
     datuso date NOT NULL, 
-    qtdusoins float8 NOT NULL, 
+    qtdusoins numeric(19, 0) NOT NULL, 
     desusoins text NOT NULL, 
     PRIMARY KEY (Insumoinsid, Animalaniid, idusuins),
     FOREIGN KEY (Insumoinsid) REFERENCES Insumo (insid),
@@ -393,3 +408,4 @@ COMMENT ON COLUMN Vacina.vacid IS 'Id da vacina';
 COMMENT ON COLUMN Vacina.nomvac IS 'Nome da vacina';
 COMMENT ON COLUMN Vacina.desvac IS 'Descrição da vacina';
 COMMENT ON COLUMN Vacina.Vacina_Animalidvacani IS 'Id da vacinação feita no animal';
+
