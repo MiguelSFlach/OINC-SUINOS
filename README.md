@@ -52,7 +52,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
 
 ### **✒️ Autores**
 
-Desenvolvedores do Projeto: [Insira os nomes dos membros da equipe aqui] Alcides Antonio Loreski Neto, Felipe Eduardo Bohnen, Miguel Schneiders Flach, Murilo Morosini, Roney Bieger Anschau
+Desenvolvedores do Projeto: [Alcides Antonio Loreski Neto, Felipe Eduardo Bohnen, Miguel Schneiders Flach, Murilo Morosini, Roney Bieger Anschau]
 #
 
 ### **🙏 Agradecimento**
