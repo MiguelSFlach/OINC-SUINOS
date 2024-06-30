@@ -14,7 +14,7 @@ SELECT DISTINCT a.aniid "ID do Animal",
                 a.Grupogruid "ID do Grupo", 
                 a.Granjacnpj "CNPJ da Granja"
 FROM Animal a
-WHERE a.tipani = 2 -- 2 indica que o animal é masculino
+WHERE a.tipani = 2 
 AND AGE(a.datnas) BETWEEN INTERVAL '6 months' AND INTERVAL '10 months'
 ORDER BY a.tipani DESC;
 
@@ -22,6 +22,7 @@ ORDER BY a.tipani DESC;
 
 /*RELATÓRIO 2
 Relacionar as granjas das cidades de São Miguel do Oeste e Descanso. Ordene o relatório pelo nome da granja em forma ascendente:*/
+
 SELECT DISTINCT g.cnpj "CNPJ da Granja", 
                 g.nomgra "Nome da Granja", 
                 g.telgran "Telefone da Granja", 
@@ -36,6 +37,7 @@ ORDER BY g.nomgra ASC;
 
 /*RELATÓRIO 3
 Relacionar todas as granjas das cidades de Maravilha, Descanso, Itapiranga e Guaraciaba que criaram mais de 100 animais. Ordene o relatório da cidade com mais animais para a cidade com menos animais:*/
+
 SELECT DISTINCT g.cnpj "CNPJ da Granja", 
                 g.nomgra "Nome da Granja", 
                 g.telgran "Telefone da Granja", 
@@ -51,6 +53,7 @@ ORDER BY g.qtdanigra DESC;
 
 /*RELATÓRIO 4
 Relacionar a granja, os tipos de animais e o total de animais por granja/tipo. Relacionar a granja com mais animais para a instituição com menos animais:*/
+
 SELECT DISTINCT g.nomgra "Nome da Granja", 
                 a.tipani "Tipo do Animal", 
                 COUNT(a.aniid) AS "Total de Animais"
