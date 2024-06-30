@@ -8,7 +8,7 @@
 
   Sistema para Gerenciamento de Granja de Suínos
 
- 🚀 Começando
+ ⚠️ Introdução
   
 Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida pela Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
 
@@ -31,7 +31,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
     * 📄 Gaia-Tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
     * 📄 Gaia-Inserts (Scripts de inserção de dados)
 
-__🛠️ Ferramentas Utilizadas__
+🛠️ Ferramentas Utilizadas
   * Paradigma Visual
   * PostgreSQL
   * DBeaver
