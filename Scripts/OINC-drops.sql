@@ -1,68 +1,69 @@
 /* Deletando as restrições */
 
 ALTER TABLE Compra 
-    DROP CONSTRAINT Compra_Fornecedoresforid_fkey;
+    DROP CONSTRAINT IF EXISTS Compra_Fornecedoresforid_fkey;
 
 ALTER TABLE Usuario 
-    DROP CONSTRAINT Usuario_Granjacnpj_fkey;
+    DROP CONSTRAINT IF EXISTS Usuario_Granjacnpj_fkey;
 
 ALTER TABLE Financeiro 
-    DROP CONSTRAINT Financeiro_Usuariousuid_fkey;
+    DROP CONSTRAINT IF EXISTS Financeiro_Usuariousuid_fkey;
 
 ALTER TABLE Animal 
-    DROP CONSTRAINT Animal_Grupogruid_fkey;
+    DROP CONSTRAINT IF EXISTS Animal_Grupogruid_fkey;
 ALTER TABLE Animal 
-    DROP CONSTRAINT Animal_Granjacnpj_fkey;
+    DROP CONSTRAINT IF EXISTS Animal_Granjacnpj_fkey;
 
 ALTER TABLE Vacina_Animal 
-    DROP CONSTRAINT Vacina_Animal_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Vacina_Animal_Animalaniid_fkey;
 
 ALTER TABLE Leitao 
-    DROP CONSTRAINT Leitao_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Leitao_Animalaniid_fkey;
 ALTER TABLE Leitao 
-    DROP CONSTRAINT Leitao_Vendavenid_fkey;
+    DROP CONSTRAINT IF EXISTS Leitao_Vendavenid_fkey;
 
 ALTER TABLE Alimentacao 
-    DROP CONSTRAINT Alimentacao_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Alimentacao_Animalaniid_fkey;
 
 ALTER TABLE Endereco 
-    DROP CONSTRAINT Endereco_Granjacnpj_fkey;
+    DROP CONSTRAINT IF EXISTS Endereco_Granjacnpj_fkey;
 
 ALTER TABLE Inseminacao 
-    DROP CONSTRAINT Inseminacao_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Inseminacao_Animalaniid_fkey;
 
 ALTER TABLE Insumo_Compra 
-    DROP CONSTRAINT Insumo_Compra_Insumoinsid_fkey;
+    DROP CONSTRAINT IF EXISTS Insumo_Compra_Insumoinsid_fkey;
 ALTER TABLE Insumo_Compra 
-    DROP CONSTRAINT Insumo_Compra_Compra_comid_fkey;
+    DROP CONSTRAINT IF EXISTS Insumo_Compra_Compra_comid_fkey;
 
 ALTER TABLE Movimentacao 
-    DROP CONSTRAINT Movimentacao_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Movimentacao_Animalaniid_fkey;
 
 ALTER TABLE Notificacao 
-    DROP CONSTRAINT Notificacao_Usuariousuid_fkey;
+    DROP CONSTRAINT IF EXISTS Notificacao_Usuariousuid_fkey;
 
 ALTER TABLE Parto 
-    DROP CONSTRAINT Parto_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Parto_Animalaniid_fkey;
 
 ALTER TABLE Registro 
-    DROP CONSTRAINT Registro_Usuariousuid_fkey;
+    DROP CONSTRAINT IF EXISTS Registro_Usuariousuid_fkey;
 
 ALTER TABLE Tratamento 
-    DROP CONSTRAINT Tratamento_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Tratamento_Animalaniid_fkey;
 
 ALTER TABLE Uso_Insumo 
-    DROP CONSTRAINT Uso_Insumo_Insumoinsid_fkey;
+    DROP CONSTRAINT IF EXISTS Uso_Insumo_Insumoinsid_fkey;
 ALTER TABLE Uso_Insumo 
-    DROP CONSTRAINT Uso_Insumo_Animalaniid_fkey;
+    DROP CONSTRAINT IF EXISTS Uso_Insumo_Animalaniid_fkey;
 
 ALTER TABLE Vacina 
-    DROP CONSTRAINT Vacina_Vacina_Animalidvacani_fkey;
-    
-  -------------------------------------------------------------
+    DROP CONSTRAINT IF EXISTS Vacina_Vacina_Animalidvacani_fkey;
+
+-------------------------------------------------------------
+
 /* Deletando as tabelas */
-   
-   DROP TABLE IF EXISTS Vacina CASCADE;
+
+DROP TABLE IF EXISTS Vacina CASCADE;
 DROP TABLE IF EXISTS Usuario CASCADE;
 DROP TABLE IF EXISTS Uso_Insumo CASCADE;
 DROP TABLE IF EXISTS Tratamento CASCADE;
