@@ -1,7 +1,7 @@
 
 /* Criação da Base de Dados */
 
---create database oinc;
+create database oinc;
 
 ----------------------------------------------------------------
 
