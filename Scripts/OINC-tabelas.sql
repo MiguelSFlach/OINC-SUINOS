@@ -71,7 +71,7 @@ CREATE TABLE Usuario (
     emausu varchar(100) NOT NULL, 
     senusu varchar(255) NOT NULL, 
     tipusu int4 NOT NULL CHECK(tipusu = '1' or tipusu = '2'), 
-    Granjacnpj int8 NOT NULL, 
+    Granjacnpj NUMERIC(14, 0) NOT NULL, 
     PRIMARY KEY (usuid),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
 );
@@ -114,7 +114,7 @@ CREATE TABLE Animal (
     stsani INT4 NOT NULL CHECK(stsani IN (1, 2)), 
     caumor VARCHAR(255), 
     Grupogruid INT4 NOT NULL, 
-    Granjacnpj INT8 NOT NULL, 
+    Granjacnpj NUMERIC(14, 0) NOT NULL, 
     PRIMARY KEY (aniid),
     FOREIGN KEY (Grupogruid) REFERENCES Grupo (gruid),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
@@ -200,7 +200,7 @@ CREATE TABLE Endereco (
     numend int4 NOT NULL, 
     cidend varchar(255) NOT NULL, 
     cepend int4 NOT NULL, 
-    Granjacnpj int8 NOT NULL, 
+    Granjacnpj NUMERIC(14, 0) NOT NULL, 
     PRIMARY KEY (idend),
     FOREIGN KEY (Granjacnpj) REFERENCES Granja (cnpj)
 );
@@ -320,7 +320,6 @@ COMMENT ON COLUMN Parto.datpar IS 'Data do parto';
 COMMENT ON COLUMN Parto.vasrec IS 'Vasectomia realizada?';
 COMMENT ON COLUMN Parto.morqtdpar IS 'Quantidade de leitões mortos no parto';
 
--- Criação da função para verificar se o animal é uma porca (tipani = 1)
 CREATE OR REPLACE FUNCTION check_female_animal()
     RETURNS TRIGGER AS $$
 BEGIN
@@ -336,7 +335,6 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
--- Criação da trigger para disparar a função antes de inserir na tabela Parto
 CREATE TRIGGER validate_female_animal
     BEFORE INSERT ON Parto
     FOR EACH ROW
