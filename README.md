@@ -4,24 +4,24 @@
                                            
 
 
- <h1>__🐖 OINC Suínos 🐖__</h1> 
+<h1><b>🐖 OINC Suínos</b>🐖</h1> 
 
   Sistema para Gerenciamento de Granja de Suínos
 
-  __🚀 Começando__
+ 🚀 Começando
   
 Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida pela Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
 
-__🔎 Um pouco do que você vai encontrar aqui:__
-* Desenvolvimento da Estrutura de Dados
-* Documentação Detalhada das Entidades e Atributos
-* Scripts para Criar o Banco de Dados e suas Tabelas
-* Scripts para Inserir Dados no Banco
-* Consultas SQL para Análise e Relatórios
-* Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
+🔎 Um pouco do que você vai encontrar aqui:
++ Desenvolvimento da Estrutura de Dados
++ Documentação Detalhada das Entidades e Atributos
++ Scripts para Criar o Banco de Dados e suas Tabelas
++ Scripts para Inserir Dados no Banco
++ Consultas SQL para Análise e Relatórios
++ Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
 
 
-__📦 Estrutura de Pastas__
+📦 Estrutura de Pastas
   * 📁 Modelagem
     * 📄 Dicionário de Dados
     * 📄 Oinc-Suínos (Documentação e descrição do processo de desenvolvimento do trabalho)
