@@ -4,42 +4,58 @@
                                            
 
 
-<h1><b>🐖 OINC Suínos</b>🐖</h1> 
+<h1 align = "center"><b>🐖 OINC Suínos</b>🐖</h1> 
 
-  Sistema para Gerenciamento de Granja de Suínos
+<h4 align = "center"><b>Sistema para Gerenciamento de Granja de Suínos</b></h4>
 
- ⚠️ Introdução
+#
+
+###  **⚠️ Introdução**
   
 Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida pela Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
+#
 
-🔎 Um pouco do que você vai encontrar aqui:
+### **🔎 Um pouco do que você vai encontrar aqui:**
 + Desenvolvimento da Estrutura de Dados
 + Documentação Detalhada das Entidades e Atributos
 + Scripts para Criar o Banco de Dados e suas Tabelas
 + Scripts para Inserir Dados no Banco
 + Consultas SQL para Análise e Relatórios
 + Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
+#
 
-
-📦 Estrutura de Pastas
-  * 📁 Modelagem
+### **📦 Estrutura de Pastas**
+  * 📁 Docs
     * 📄 Dicionário de Dados
-    * 📄 Oinc-Suínos (Documentação e descrição do processo de desenvolvimento do trabalho)
-  * 📁 Roteiros
-    * 📄 Gaia-Consultas (Scripts de consulta/relatórios do sistema)
-    * 📄 Gaia-Drops (Scripts de exclusão de tabelas e da Base de Dados)
-    * 📄 Gaia-Tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
-    * 📄 Gaia-Inserts (Scripts de inserção de dados)
+    * 📄 Oinc-Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
+  * 📁 Scripts
+    * 📄 OINC-consultas (Scripts de consulta/relatórios do sistema)
+    * 📄 OINC-drops (Scripts de exclusão de tabelas e da Base de Dados)
+    * 📄 OINC-tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
+    * 📄 OINC-inserts (Scripts de inserção de dados)
+  * 📁 Modelagem
+    * OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
+#
 
-🛠️ Ferramentas Utilizadas
-  * Paradigma Visual
-  * PostgreSQL
-  * DBeaver
-  * Google Docs
-  * Generatedata.com
+### 
+**🛠️ Ferramentas Utilizadas**
+<table>
+  <tr>
+    <td><b>Visual Paradigm</b></td>
+    <td><b>PostgreSQL</b></td>
+    <td><b>DBeaver</b></td>
+    <td><b>Google Docs</b></td>
+    <td><b>Generate Data</b></td>
+  </tr>
+</table>
 
-  __✒️ Autores__
+#
+
+### **✒️ Autores**
+
 Desenvolvedores do Projeto: [Insira os nomes dos membros da equipe aqui]
+#
 
-  __🙏 Agradecimento__
+### **🙏 Agradecimento**
+  
 Gostaríamos de agradecer ao professor por disponibilizar o exemplo anterior do projeto de banco de dados, que nos inspirou e ajudou na construção do nosso trabalho para a gerência de granja de suínos na UNOESC.
