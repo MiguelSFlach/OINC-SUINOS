@@ -27,8 +27,10 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
   * 📁 Docs
     * 📄 Dicionário de Dados
     * 📄 Oinc-Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
+    * 📄 Figuras 
   * 📁 Modelagem
-    * OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
+    * 📄 OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
+    * 📄 Dicionário de Dados
   * 📁 Scripts
     * 📄 OINC-consultas (Scripts de consulta/relatórios do sistema)
     * 📄 OINC-drops (Scripts de exclusão de tabelas e da Base de Dados)
