@@ -33,7 +33,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
     * 📄 Dicionário de Dados
   * 📁 Scripts
     * 📄 OINC-consultas (Scripts de consulta/relatórios do sistema)
-    * 📄 OINC-drops (Scripts de exclusão de tabelas e da Base de Dados)
+    * 📄 OINC-drops (Scripts de exclusão de tabelas e chaves estrangeiras)
     * 📄 OINC-tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
     * 📄 OINC-inserts (Scripts de inserção de dados)
 #
