@@ -63,4 +63,4 @@ Desenvolvedores do Projeto:
 
 ### **🙏 Agradecimento**
   
-Gostaríamos de agradecer ao professor Roberson Alves que nos inspirou e ajudou na construção do nosso trabalho para a gerência de granja de suínos.
+Gostaríamos de agradecer ao professor Roberson Alves que nos inspirou e ajudou na construção do nosso trabalho para a gerência de granja de suínos
