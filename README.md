@@ -25,8 +25,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
 
 ### **📦 Estrutura de Pastas**
   * 📁 Docs
-    * 📄 Dicionário de Dados
-    * 📄 Oinc-Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
+    * 📄 Projeto OINC Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
     * 📄 Figuras 
   * 📁 Modelagem
     * 📄 OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
