@@ -77,7 +77,7 @@ INSERT INTO Animal (aniid, tipani, datnas, pesani, stsani, caumor, Grupogruid, G
   (17, 2, '2023-07-14', 185, 1, NULL, 2, 11111111000187),
   (18, 2, '2023-08-29', 225, 2, 'Doença cardíaca', 2, 98765432000121),
   (19, 3, '2023-09-05', 75, 2, 'Lesão', 3, 55555555000199),
-  (20, 1, '2024-03-25', 135, 1, NULL, 1, 12345678000195);
+  (20, 2, '2024-03-25', 135, 1, NULL, 1, 12345678000195);
 
 UPDATE Granja AS g
 SET qtdanigra = (
