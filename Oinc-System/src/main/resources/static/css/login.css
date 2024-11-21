@@ -1,0 +1,139 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f2937; /* Cor de fundo escura como o dashboard */
+    color: #e5e7eb; /* Cor clara para o texto */
+}
+
+/* Cabeçalhos */
+h1 {
+    text-align: center;
+    color: #2563eb; /* Azul destacado para o título */
+    margin-top: 20px;
+}
+
+/* Formulários */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #374151; /* Fundo escuro do formulário */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: #e5e7eb; /* Texto claro no formulário */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #e5e7eb; /* Cor clara para os rótulos */
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #6b7280; /* Borda sutil */
+    border-radius: 4px;
+    background-color: #4b5563; /* Fundo escuro dos campos */
+    color: #f9fafb; /* Texto claro nos campos */
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+form input::placeholder {
+    color: #9ca3af; /* Cor do placeholder */
+}
+
+form button {
+    background-color: #2563eb; /* Azul destacado */
+    color: white; /* Texto branco */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #1d4ed8; /* Azul mais escuro no hover */
+}
+
+form a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #60a5fa; /* Azul claro para links */
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Tabelas */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #374151; /* Fundo escuro da tabela */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: #e5e7eb; /* Texto claro na tabela */
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #6b7280; /* Borda sutil */
+}
+
+table th {
+    background-color: #2563eb; /* Azul destacado no cabeçalho */
+    color: white;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #4b5563; /* Fundo mais claro ao passar o mouse */
+}
+
+table td a {
+    color: #60a5fa; /* Azul claro para links */
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Botões */
+button, a.button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #2563eb; /* Azul destacado */
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, a.button:hover {
+    background-color: #1d4ed8; /* Azul mais escuro no hover */
+}
+
+/* Links */
+a {
+    color: #60a5fa; /* Azul claro para links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

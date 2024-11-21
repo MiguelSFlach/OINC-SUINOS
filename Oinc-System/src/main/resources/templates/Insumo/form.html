@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Insumo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1 th:text="${insumo.id != null ? 'Editar Insumo' : 'Novo Insumo'}"></h1>
+    <form th:action="@{/insumos/add}" th:object="${insumo}" method="post">
+        <div>
+            <label for="nome">Nome do Insumo:</label>
+            <input type="text" id="nome" name="nome" th:value="${insumo.nome}" required />
+        </div>
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" th:text="${insumo.descricao}"></textarea>
+        </div>
+        <div>
+            <label for="estoque">Quantidade em Estoque:</label>
+            <input type="number" id="estoque" name="estoque" th:value="${insumo.estoque}" required />
+        </div>
+        <div>
+            <label for="precoUnitario">Preço Unitário:</label>
+            <input type="number" id="precoUnitario" name="precoUnitario" th:value="${insumo.precoUnitario}" step="0.01" required />
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

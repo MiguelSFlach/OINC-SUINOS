@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Insumos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Insumos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Fornecedor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="insumo : ${insumos}">
+                <td th:text="${insumo.id}"></td>
+                <td th:text="${insumo.nome}"></td>
+                <td th:text="${insumo.quantidade}"></td>
+                <td th:text="${insumo.fornecedor.nome}"></td>
+                <td>
+                    <a th:href="@{/insumo/edit/{id}(id=${insumo.id})}">Editar</a>
+                    <a th:href="@{/insumo/delete/{id}(id=${insumo.id})}" onclick="return confirm('Tem certeza que deseja excluir este insumo?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a href="/insumo/add" class="button">Cadastrar Novo Insumo</a>
+        <a href="/fornecedor/add" class="button">Cadastrar Novo Fornecedor</a>
+        <a href="/insumo/compra" class="button">Realizar Compra de Insumo</a>
+    </div>
+</body>
+</html>

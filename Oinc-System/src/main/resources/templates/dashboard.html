@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OINC-System Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1>OINC-System</h1>
+        </div>
+        <div class="header-right">
+            <span th:text="'Usuário Logado: ' + ${selectedUsuario}">Usuário Logado: N/A</span>
+            <button id="btn-logout" class="logout-btn">Sair</button>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <button class="sidebar-btn" id="btn-animais">Animais</button>
+            <button class="sidebar-btn" id="btn-movimentacao">Movimentação</button>
+            <button class="sidebar-btn" id="btn-vendas">Vendas</button>
+            <button class="sidebar-btn" id="btn-vacinas">Vacinas</button>
+            <button class="sidebar-btn" id="btn-insumos">Insumos</button>
+            <button class="sidebar-btn" id="btn-fornecedores">Fornecedores</button>
+        </aside>
+        <main class="main-content" id="content-area">
+            <h2>Bem-vindo ao OINC-System</h2>
+            <p>Selecione uma opção no menu à esquerda para começar.</p>
+        </main>
+    </div>
+
+    <script>
+        // Função para carregar conteúdo dinâmico
+        function loadContent(endpoint, errorMessage) {
+            fetch(endpoint)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(errorMessage);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById("content-area").innerHTML = html;
+                })
+                .catch(err => console.error(errorMessage, err));
+        }
+
+        // Botões do menu lateral
+        document.getElementById("btn-animais").addEventListener("click", () => {
+            loadContent('/animal/list', "Erro ao carregar a lista de animais.");
+        });
+
+        document.getElementById("btn-movimentacao").addEventListener("click", () => {
+            loadContent('/movimentacao/list', "Erro ao carregar a lista de movimentações.");
+        });
+
+        document.getElementById("btn-vendas").addEventListener("click", () => {
+            loadContent('/venda/list', "Erro ao carregar a lista de vendas.");
+        });
+
+        document.getElementById("btn-vacinas").addEventListener("click", () => {
+            loadContent('/vacinas/list', "Erro ao carregar a lista de vacinas.");
+        });
+
+        document.getElementById("btn-insumos").addEventListener("click", () => {
+            loadContent('/insumos/list', "Erro ao carregar a lista de insumos.");
+        });
+
+        document.getElementById("btn-fornecedores").addEventListener("click", () => {
+            loadContent('/fornecedores/list', "Erro ao carregar a lista de fornecedores.");
+        });
+
+        // Função de logout
+        document.getElementById("btn-logout").addEventListener("click", () => {
+            if (confirm("Tem certeza de que deseja sair?")) {
+                window.location.href = "/login?logout";
+            }
+        });
+    </script>
+</body>
+</html>

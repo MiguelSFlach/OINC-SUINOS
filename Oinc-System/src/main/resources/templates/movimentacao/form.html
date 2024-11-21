@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${movimentacao.movid == null ? 'Nova Movimentação' : 'Editar Movimentação'}">
+        Nova Movimentação
+    </title>
+</head>
+<body>
+    <h1 th:text="${movimentacao.movid == null ? 'Nova Movimentação' : 'Editar Movimentação'}">
+        Nova Movimentação
+    </h1>
+    <form th:action="@{/movimentacao/save}" th:object="${movimentacao}" method="post">
+        <input type="hidden" th:field="*{movid}" />
+        
+        <label for="datmov">Data:</label>
+        <input type="date" id="datmov" th:field="*{datmov}" required /><br>
+        
+        <label for="tipmov">Tipo:</label>
+        <select id="tipmov" th:field="*{tipmov}" required>
+            <option value="1" th:selected="*{tipmov == 1}">Entrada</option>
+            <option value="2" th:selected="*{tipmov == 2}">Saída</option>
+        </select><br>
+        
+        <label for="locorimov">Local de Origem:</label>
+        <input type="text" id="locorimov" th:field="*{locorimov}" required /><br>
+        
+        <label for="locdesmov">Local de Destino:</label>
+        <input type="text" id="locdesmov" th:field="*{locdesmov}" required /><br>
+        
+        <label for="motmov">Motivo:</label>
+        <textarea id="motmov" th:field="*{motmov}" required></textarea><br>
+        
+        <label for="animalaniid">ID do Animal:</label>
+        <input type="number" id="animalaniid" th:field="*{animalaniid}" required /><br>
+        
+        <button type="submit">Salvar</button>
+        <a href="/dashboard"><button type="button">Cancelar</button></a>
+    </form>
+</body>
+</html>

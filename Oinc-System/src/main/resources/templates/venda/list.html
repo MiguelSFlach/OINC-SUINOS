@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Vendas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Vendas</h1>
+    <a th:href="@{/venda/form}"><button>Nova Venda</button></a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Confirmada</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="venda : ${vendas}">
+                <td th:text="${venda.id}">ID</td>
+                <td th:text="${venda.dataVenda}">Data</td>
+                <td th:text="${venda.confirmada ? 'Sim' : 'Não'}">Confirmada</td>
+                <td>
+                    <a th:href="@{/venda/form(vendaId=${venda.id})}">Editar</a>
+                    <a th:href="@{/venda/confirm(vendaId=${venda.id})}">Confirmar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

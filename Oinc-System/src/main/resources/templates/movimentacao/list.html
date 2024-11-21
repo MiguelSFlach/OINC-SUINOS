@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Movimentações</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Movimentações</h1>
+    <a href="/movimentacao/new"><button>Nova Movimentação</button></a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="movimentacao : ${movimentacoes}">
+                <td th:text="${movimentacao.id}"></td>
+                <td th:text="${movimentacao.descricao}"></td>
+                <td th:text="${movimentacao.data}"></td>
+                <td th:text="${movimentacao.tipo}"></td>
+                <td>
+                    <a th:href="@{/movimentacao/edit/{id}(id=${movimentacao.id})}">Editar</a> |
+                    <a th:href="@{/movimentacao/delete/{id}(id=${movimentacao.id})}" onclick="return confirm('Deseja deletar?')">Deletar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

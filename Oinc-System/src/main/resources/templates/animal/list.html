@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Animais</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div th:fragment="content">
+        <h1>Lista de Animais</h1>
+        <a href="/animal/new"><button>Novo Animal</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Data de Nascimento</th>
+                    <th>Peso</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="animal : ${animals}">
+                    <td th:text="${animal.aniId}"></td>
+                    <td th:text="${animal.tipAni}"></td>
+                    <td th:text="${animal.datNas}"></td>
+                    <td th:text="${animal.pesAni}"></td>
+                    <td th:text="${animal.stsAni}"></td>
+                    <td>
+                        <a th:href="@{/animal/edit/{id}(id=${animal.aniId})}">Editar</a> |
+                        <a th:href="@{/animal/delete/{id}(id=${animal.aniId})}" onclick="return confirm('Deseja deletar?')">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

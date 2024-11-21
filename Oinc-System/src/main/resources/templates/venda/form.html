@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Venda</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1 th:text="${venda.venid != null ? 'Editar Venda' : 'Nova Venda'}"></h1>
+    <form th:action="@{/venda/confirm}" th:object="${venda}" method="post">
+        <div>
+            <label for="datven">Data da Venda:</label>
+            <input type="date" id="datven" name="datven" th:value="${venda.datven}" required />
+        </div>
+        <div>
+            <label for="precoUnitario">Preço Unitário:</label>
+            <input type="number" id="precoUnitario" name="precoUnitario" th:value="${venda.precoUnitario}" step="0.01" required />
+        </div>
+        <div>
+            <label for="leitaoIds">IDs dos Leitões (separados por vírgula):</label>
+            <input type="text" id="leitaoIds" name="leitaoIds" placeholder="Ex.: 1,2,3" />
+        </div>
+        <div>
+            <label for="total">Total:</label>
+            <input type="number" id="total" name="total" th:value="${venda.total}" readonly />
+        </div>
+        <button type="submit">Confirmar Venda</button>
+    </form>
+
+    <script>
+        function calcularTotal() {
+            const precoUnitario = parseFloat(document.getElementById("precoUnitario").value) || 0;
+            const leitaoIds = document.getElementById("leitaoIds").value;
+            const quantidade = leitaoIds ? leitaoIds.split(",").filter(id => id.trim() !== "").length : 0;
+            const total = precoUnitario * quantidade;
+
+            document.getElementById("total").value = total.toFixed(2);
+        }
+
+        document.getElementById("precoUnitario").addEventListener("input", calcularTotal);
+        document.getElementById("leitaoIds").addEventListener("input", calcularTotal);
+    </script>
+
+    <div th:if="${error}">
+        <p style="color: red;" th:text="${error}"></p>
+    </div>
+</body>
+</html>

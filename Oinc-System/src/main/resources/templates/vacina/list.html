@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Vacinas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Vacinas</h1>
+
+    <a href="/vacina/add">Adicionar Nova Vacina</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vacina : ${vacinas}">
+                <td th:text="${vacina.id}">1</td>
+                <td th:text="${vacina.nome}">Nome</td>
+                <td th:text="${vacina.tipo}">Tipo</td>
+                <td>
+                    <a th:href="@{'/vacina/edit/' + ${vacina.id}}">Editar</a>
+                    <a th:href="@{'/vacina/delete/' + ${vacina.id}}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${vacinas.size() == 0}">
+        <p>Nenhuma vacina encontrada.</p>
+    </div>
+</body>
+</html>

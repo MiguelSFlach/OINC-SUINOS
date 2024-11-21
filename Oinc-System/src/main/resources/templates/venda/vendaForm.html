@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adicionar Leitões à Venda</title>
+</head>
+<body>
+    <h1>Adicionar Leitões à Venda</h1>
+
+    <!-- Exibir mensagens de erro -->
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+
+    <!-- Exibir informações da venda -->
+    <h3>Venda ID: <span th:text="${venda.venid}"></span></h3>
+
+    <!-- Formulário para adicionar IDs de leitões -->
+    <form th:action="@{/venda/addLeitao}" method="post">
+        <input type="hidden" name="vendaId" th:value="${venda.venid}" />
+
+        <label for="leitaoIds">IDs dos Leitões (separados por vírgulas):</label>
+        <input type="text" id="leitaoIds" name="leitaoIds" placeholder="Ex.: 101, 102, 103" required />
+
+        <button type="submit">Adicionar Leitões</button>
+    </form>
+
+    <hr>
+
+    <!-- Lista de leitões associados -->
+    <h3>Leitões na Venda:</h3>
+    <ul>
+        <li th:each="leitao : ${leitoes}" th:text="'ID: ' + ${leitao.leitaoId}"></li>
+    </ul>
+
+    <!-- Formulário para confirmar a venda -->
+    <form th:action="@{/venda/confirm}" method="post">
+        <input type="hidden" name="vendaId" th:value="${venda.venid}" />
+        <button type="submit">Confirmar Venda</button>
+    </form>
+</body>
+</html>

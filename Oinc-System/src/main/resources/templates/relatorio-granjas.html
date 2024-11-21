@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Granjas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Relatório de Granjas</h1>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/animal/list">Animais</a></li>
+                <li><a href="/movimentacao/list">Movimentações</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Resumo das Granjas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>CNPJ Granja</th>
+                    <th>Nome Granja</th>
+                    <th>Total de Animais</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="linha : ${relatorio}">
+                    <td th:text="${linha[0]}"></td>
+                    <td th:text="${linha[1]}"></td>
+                    <td th:text="${linha[2]}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>© 2024 Granja System. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
