@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"com.granja.oinc_system.controller","c":"DashboardController","l":"DashboardController(AnimalControl)","u":"%3Cinit%3E(com.granja.oinc_system.control.AnimalControl)"},{"p":"com.granja.oinc_system.controller","c":"DashboardController","l":"showDashboard(Model)","u":"showDashboard(org.springframework.ui.Model)"}];updateSearchResults();
