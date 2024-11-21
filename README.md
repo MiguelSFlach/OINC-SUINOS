@@ -49,6 +49,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
     <td><b>DBeaver</b></td>
     <td><b>Google Docs</b></td>
     <td><b>Generate Data</b></td>
+    <td><b>Eclipse IDE</b></td>
   </tr>
 </table>
 
@@ -66,4 +67,4 @@ Desenvolvedores do Projeto:
 
 ### **🙏 Agradecimento**
   
-Gostaríamos de agradecer ao professor Roberson Alves que nos inspirou e ajudou na construção do nosso trabalho para a gerência de granja de suínos
+Gostaríamos de agradecer aos professores Roberson Alves e Otília Donato Barbosa que nos inspiraram e ajudaram na construção do nosso trabalho para a gerência de granja de suínos
