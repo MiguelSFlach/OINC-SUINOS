@@ -14,7 +14,7 @@
 
 ###  **⚠️ Introdução**
   
-Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida pela Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Banco de Dados para Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do banco de dados completo.
+Este é um trabalho avaliativo para as disciplinas de Banco de Dados 2, Programação 2 e Engenharia de Software 1, oferecida pela Universidade do Oeste de Santa Catarina (UNOESC). Nosso objetivo foi criar e desenvolver um Sistema para o Gerenciamento de Granja de Suínos, cobrindo desde a concepção dos requisitos até a implementação do sistema completo.
 #
 
 ### **🔎 Um pouco do que você vai encontrar aqui:**
@@ -29,6 +29,7 @@ Este é um trabalho avaliativo para a disciplina de Banco de Dados 1, oferecida 
 ### **📦 Estrutura de Pastas**
   * 📁 Docs
     * 📄 Projeto OINC Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
+    * 📄 JavaDoc
     * 📄 Figuras 
   * 📁 Modelagem
     * 📄 OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
