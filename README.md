@@ -20,25 +20,35 @@ Este é um trabalho avaliativo para as disciplinas de Banco de Dados 2, Programa
 ### **🔎 Um pouco do que você vai encontrar aqui:**
 + Desenvolvimento da Estrutura de Dados
 + Documentação Detalhada das Entidades e Atributos
-+ Scripts para Criar o Banco de Dados e suas Tabelas
-+ Scripts para Inserir Dados no Banco
-+ Consultas SQL para Análise e Relatórios
++ Scripts para o Banco de Dados
++ Sistema em Maven Java
++ Uso de Views, Procedures, Triggers e índices no Banco de Dados
 + Documentação Completa Descrevendo o Processo de Desenvolvimento do Projeto
++ Diagramas UML: Casos de Uso, Classes, Sequência, Estados e Atividade
++ Interface Gráfica com Cadastro de Animais
 #
 
 ### **📦 Estrutura de Pastas**
   * 📁 Docs
     * 📄 Projeto OINC Suínos (Documentação escrita e descrição do processo de desenvolvimento do trabalho)
-    * 📄 JavaDoc
-    * 📄 Figuras 
+    * 📄 Levantamento de Requisitos
+  * 📁 Javadoc
+    * 📄 Descrições de pacotes, classes, métodos, atributos, exceções e anotações, detalhando funcionalidades e relações no sistema
   * 📁 Modelagem
     * 📄 OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
     * 📄 Dicionário de Dados
   * 📁 Scripts
-    * 📄 OINC-consultas (Scripts de consulta/relatórios do sistema)
-    * 📄 OINC-drops (Scripts de exclusão de tabelas e chaves estrangeiras)
-    * 📄 OINC-tables (Scripts de criação de Base de Dados, tabelas, restrições e índices)
-    * 📄 OINC-inserts (Scripts de inserção de dados)
+    * 📄 Script-Create Table 
+    * 📄 Script-Index 
+    * 📄 Script-Procedures
+    * 📄 Script-Triggers
+    * 📄 Script-Users
+    * 📄 Script-Views
+    * 📄 Script-consultas
+    * 📄 Script-drops
+    * 📄 Script-inserts
+  * 📁 UML
+    * 📄 Diagramas UML
 #
 
 ### 
