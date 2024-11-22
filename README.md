@@ -34,6 +34,8 @@ Este é um trabalho avaliativo para as disciplinas de Banco de Dados 2, Programa
     * 📄 Levantamento de Requisitos
   * 📁 Javadoc
     * 📄 Descrições de pacotes, classes, métodos, atributos, exceções e anotações, detalhando funcionalidades e relações no sistema
+  * 📁 Oinc-System
+    * 📄 Projeto Maven que integra código Java, templates HTML para interface, arquivos CSS para estilo e configurações de build e dependências
   * 📁 Modelagem
     * 📄 OINC Suínos (tabelas, colunas e tipagem de dados no Modelo Relacional)
     * 📄 Dicionário de Dados
